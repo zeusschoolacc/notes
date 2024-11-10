@@ -1,0 +1,122 @@
+CIS2105 Notes
+
+Switch Data VLAN config:
+/* do this with all ports under that VLAN*/
+
+vlan <VLAN ID>
+name <NAME>
+int <port>
+switchport mode access
+switchport access vlan <VLAN ID>
+
+
+
+Switch Voice VLAN config:
+/* do this with all ports with ephones */
+
+vlan <VLAN ID>
+name <NAME>
+int <port>
+switchport mode access
+switchport voice vlan <VLAN ID>
+
+
+
+Switch Trunking:
+/* do this between switches to communicate within VLAN */
+
+int <port>
+switchport mode trunk
+
+
+
+Router on a stick:
+/* do this with all vlans on a router */
+
+int <port>
+no shutdown
+int <port>.<VLAN ID>
+encapsulation dot1q <VLAN ID>
+ip address <default gateway> <subnet mask>
+
+
+
+Multilayered Switch (Routing):
+/* do this with 3560 or 3650 */
+
+(if 3650 make sure to plug in power cord)
+int <port>
+no switchport
+ip address <default gateway> <subnet mask>
+
+
+
+Multilatered Switch (Switches):
+/* make sure to trunk switch to MLS beforehand */
+ip routing
+vlan <VLAN ID>
+name <NAME>
+int vlan <VLAN ID>
+ip address <default gateway> <subnet mask>
+
+
+
+DHCP Pool:
+
+
+ip dhcp pool <NAME>
+default-router <default gateway>
+option 150 ip <deafault gateway>
+network <network address> <subnet mask>
+
+Option 150 basta voice vlan 
+if PCs wala ra 
+
+VoIP Phones:
+/* Make sure router is 2811 */
+
+telephony-service
+max-dn <MAX NUMBER OF DN>
+max-ephones <MAX NUMBER OF EPHONES>
+ip source-address <default gateway> port 2000
+auto assign 1 to <MAX NUMBER OF TELEPHONES>
+
+
+
+Ephone Number Assigning:
+/* Do this for each telephone */
+
+ephone-dn <EPHONE NUMBER FROM 1 to MAX>
+number <PHONE NUMBER TO CALL>
+
+
+
+- - - - - ROUTING - - - - -
+
+Router Rip (Version 2):
+/* Register networks connected to current router */
+
+router rip
+version 2
+network <NETWORK ADDRESS CONNECTED TO ROUTER>
+
+
+
+Static Routing:
+/* Manually input the next hop address for specific destination networks */
+
+ip route <destination network address> <destination subnet mask> <next hop ip address>
+
+
+
+Default Routing:
+/* Manually input the different next hop addresses */
+
+ip route 0.0.0.0 0.0.0.0 <next hop ip address>
+
+
+
+Dynamic Routing:
+router rip
+version 2
+

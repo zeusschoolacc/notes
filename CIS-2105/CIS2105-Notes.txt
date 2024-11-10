@@ -41,7 +41,7 @@ ip address <default gateway> <subnet mask>
 
 
 
-Multilayered Switch (Routing):
+Multilayered Switch (Setting IP address):
 /* do this with 3560 or 3650 */
 
 (if 3650 make sure to plug in power cord)
@@ -51,7 +51,7 @@ ip address <default gateway> <subnet mask>
 
 
 
-Multilatered Switch (Switches):
+Multilatered Switch (Router-on-a-stick):
 /* make sure to trunk switch to MLS beforehand */
 ip routing
 vlan <VLAN ID>

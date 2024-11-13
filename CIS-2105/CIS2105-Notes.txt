@@ -116,7 +116,26 @@ ip route 0.0.0.0 0.0.0.0 <next hop ip address>
 
 
 
-Dynamic Routing:
-router rip
-version 2
+Dynamic Routing (EIGRP):
+/* Cisco only */
 
+router eigrp <AUTONOMOUS SYSTEM NUMBER>
+network <NETWORK ADDRESS CONNECTED TO ROUTER>
+/*
+  Autonomous System Number must be same for all routers to properly connect
+*/
+
+
+
+ Dynamic Routing (OSPF):
+/* Universal Protocol */
+
+router ospf <PROCESS ID 0-65535> 
+network <NETWORK ADDRESS CONNECTED TO ROUTER> <WILD CARD MASK> Area <AREA ID>
+/*
+  Process ID must be same for all routers to properly connect
+  Area ID must be the same within the router's connection
+  Wild card mask - inverse of subnet mask / complement of subnet
+  Wild card mask Formula: 255.255.255.255 - <Subnet Mask> 
+  e.g. 255.255.255.0 -> 0.0.0.255
+*/

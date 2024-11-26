@@ -139,3 +139,29 @@ network <NETWORK ADDRESS CONNECTED TO ROUTER> <WILD CARD MASK> Area <AREA ID>
   Wild card mask Formula: 255.255.255.255 - <Subnet Mask> 
   e.g. 255.255.255.0 -> 0.0.0.255
 */
+
+
+
+- - - - - REDISTRIBUTION - - - - -
+
+RIP Redistribute:
+/* For router rip */
+
+redistribute eigrp <Autonomous Number> metric <Characteristic>   // e.g. redistribute eigrp 7 metric 1
+redistribute ospf <Autonomous Number> metric <Characteristic>   // e.g. redistribute ospf 7 metric 1
+
+
+
+EIGRP Redistribute:
+/* For router eigrp */
+
+redistribute rip metric <5 Characteristics>   // e.g. redistribute rip metric 1 1 1 1 1
+redistrubute ospf <Autonomous Number> metric <5 Characteristics>  // e.g. redistribute ospf 7 metric 1 1 1 1 1
+
+
+
+OSPF Redistribute:
+/* For router ospf */
+
+redistribute rip subnets
+redistribute eigrp <Autonomous Number> subnets  // e.g. redistribute eigrp 7 subnets

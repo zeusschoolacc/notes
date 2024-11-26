@@ -116,7 +116,7 @@ ip route 0.0.0.0 0.0.0.0 <next hop ip address>
 
 
 
-Dynamic Routing (EIGRP):
+Router EIGRP:
 /* Cisco only */
 
 router eigrp <AUTONOMOUS SYSTEM NUMBER>
@@ -127,7 +127,7 @@ network <NETWORK ADDRESS CONNECTED TO ROUTER>
 
 
 
- Dynamic Routing (OSPF):
+Router OSPF:
 /* Universal Protocol */
 
 router ospf <PROCESS ID 0-65535> 
@@ -147,6 +147,7 @@ network <NETWORK ADDRESS CONNECTED TO ROUTER> <WILD CARD MASK> Area <AREA ID>
 RIP Redistribute:
 /* For router rip */
 
+router rip
 redistribute eigrp <Autonomous Number> metric <Characteristic>   // e.g. redistribute eigrp 7 metric 1
 redistribute ospf <Autonomous Number> metric <Characteristic>   // e.g. redistribute ospf 7 metric 1
 
@@ -155,6 +156,7 @@ redistribute ospf <Autonomous Number> metric <Characteristic>   // e.g. redistri
 EIGRP Redistribute:
 /* For router eigrp */
 
+router eigrp <Autonomous Number>
 redistribute rip metric <5 Characteristics>   // e.g. redistribute rip metric 1 1 1 1 1
 redistrubute ospf <Autonomous Number> metric <5 Characteristics>  // e.g. redistribute ospf 7 metric 1 1 1 1 1
 
@@ -163,5 +165,6 @@ redistrubute ospf <Autonomous Number> metric <5 Characteristics>  // e.g. redist
 OSPF Redistribute:
 /* For router ospf */
 
+router ospf <Autonomous Number>
 redistribute rip subnets
 redistribute eigrp <Autonomous Number> subnets  // e.g. redistribute eigrp 7 subnets

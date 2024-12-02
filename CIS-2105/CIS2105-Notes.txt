@@ -157,8 +157,8 @@ EIGRP Redistribute:
 /* For router eigrp */
 
 router eigrp <Autonomous Number>
-redistribute rip metric <5 Characteristics>   // e.g. redistribute rip metric 1 1 1 1 1
-redistrubute ospf <Autonomous Number> metric <5 Characteristics>  // e.g. redistribute ospf 7 metric 1 1 1 1 1
+redistribute rip metric <5 Characteristics>   // e.g. redistribute rip metric 1 1 1 1 1 (bandwidth, delay, reliability, load, MTU).
+redistrubute ospf <Autonomous Number> metric <5 Characteristics>  // e.g. redistribute ospf 7 metric 1 1 1 1 1 (bandwidth, delay, reliability, load, MTU).
 
 
 
